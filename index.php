@@ -34,6 +34,17 @@ function getNumberOfComments($html)
     return 0;
 }
 
+function getImagePath($html)
+{
+    $matches = array();
+
+    if (preg_match('~<img .+? src="([^"]+)" class="low-res-photo"~s', $html, $matches)) {
+        return $matches[1];
+    }
+
+    return null;
+}
+
 function getInformationsOfPage($page)
 {
     $curl = curl_init();
@@ -52,6 +63,7 @@ function getInformationsOfPage($page)
         'views'    => getNumberOfViews($html),
         'likes'    => getNumberOfLikes($html),
         'comments' => getNumberOfComments($html),
+        'path'     => getImagePath($html),
     );
 }
 
@@ -69,6 +81,7 @@ $htmlTemplate = <<<HTML
         <table border="0" style="width: 100%%; height: 100%%;"><tr><td valign="middle" align="center" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 40px; font-style: normal; font-variant: normal; font-weight: 400; background-color: rgba(255, 255, 255, 0.5);">
             <table border="0" cellpadding="20" style="background-color: rgba(255, 255, 255, 0.5);">
                 <tr><td></td><td align="center" style="font-size: 60px;"><b>Isa</b></td><td>vs.</td><td align="center" style="font-size: 60px;"><b>Bj&ouml;rn</b></td></tr>
+                <tr><td style="font-size: 20px;">Image</td><td align="center"><img style="width: 200px;" src="%s"></td><td>vs.</td><td align="center"><img style="width: 200px;" src="%s"></td></tr>
                 <tr><td style="font-size: 20px;">Views</td><td align="center">%d</td><td>vs.</td><td align="center">%d</td></tr>
                 <tr><td style="font-size: 20px;">Likes</td><td align="center">%d</td><td>vs.</td><td align="center">%d</td></tr>
                 <tr><td style="font-size: 20px;">Comments</td><td align="center">%d</td><td>vs.</td><td align="center">%d</td></tr>
@@ -79,5 +92,5 @@ $htmlTemplate = <<<HTML
 </html>
 HTML;
 
-print sprintf($htmlTemplate, $informationsIsa['views'], $informationsBjoern['views'], $informationsIsa['likes'], $informationsBjoern['likes'], $informationsIsa['comments'], $informationsBjoern['comments'], $time);
+print sprintf($htmlTemplate, $informationsIsa['path'], $informationsBjoern['path'], $informationsIsa['views'], $informationsBjoern['views'], $informationsIsa['likes'], $informationsBjoern['likes'], $informationsIsa['comments'], $informationsBjoern['comments'], $time);
 
