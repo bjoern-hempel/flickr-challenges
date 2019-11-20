@@ -107,7 +107,7 @@ $htmlTemplate = <<<HTML
         </script>
     </head>
     <!--body style="width: 100%%; height: 100%%; padding: 0; margin: 0; background-image: url('https://live.staticflickr.com/65535/48976646986_1d786e7d56_h.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"-->
-    <body style="width: 100%%; height: 100%%; padding: 0; margin: 0; background-color: #c0c0c0; background-image: url('https://live.staticflickr.com/65535/48976646986_1d786e7d56_h.jpg'); background-position: center; background-repeat: no-repeat; background-size: 100%% auto;" onload="compare()">
+    <body style="width: 100%%; height: 100%%; padding: 0; margin: 0; background-color: #c0c0c0; background-image: url('https://live.staticflickr.com/65535/48976646986_1d786e7d56_h.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;;" onload="compare()">
         <table border="0" style="width: 100%%; height: 100%%;"><tr><td valign="middle" align="center" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 40px; font-style: normal; font-variant: normal; font-weight: 400; background-color: rgba(255, 255, 255, 0.5);">
             <table border="0" cellpadding="20" style="background-color: rgba(255, 255, 255, 0.5);">
                 <!--tr><td colspan="4">Hier schummelt niemand! Und wer 6 Likes mehr hat, muss ja gar nicht meckern 😉</td></tr>-->
