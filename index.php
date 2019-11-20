@@ -76,15 +76,46 @@ $htmlTemplate = <<<HTML
 <html lang="en" style="width: 100%%; height: 100%%; padding: 0; margin: 0;">
     <head>
         <title>Die Flickr Challenge</title>
+        <script type="text/javascript">
+            function compare()
+            {
+                var viewsIsa = document.getElementById('viewsIsa').textContent;
+                var viewsBjoern = document.getElementById('viewsBjoern').textContent;
+                var likesIsa = document.getElementById('likesIsa').textContent;
+                var likesBjoern = document.getElementById('likesBjoern').textContent;
+                var commentsIsa = document.getElementById('commentsIsa').textContent;
+                var commentsBjoern = document.getElementById('commentsBjoern').textContent;
+
+                if (viewsIsa > viewsBjoern){
+                    document.getElementById('viewsIsa').setAttribute("style", "color: #4cb576; font-weight: bold");
+                }else if (viewsIsa < viewsBjoern) {
+                    document.getElementById('viewsBjoern').setAttribute("style", "color: #4cb576; font-weight: bold");
+                }
+
+                if (likesIsa > likesBjoern){
+                    document.getElementById('likesIsa').setAttribute("style", "color: #4cb576; font-weight: bold");
+                }else if (likesIsa < likesBjoern) {
+                    document.getElementById('likesBjoern').setAttribute("style", "color: #4cb576; font-weight: bold");
+                }
+
+                if (commentsIsa > commentsBjoern){
+                    document.getElementById('commentsIsa').setAttribute("style", "color: #4cb576; font-weight: bold");
+                }else if (commentsIsa < commentsBjoern) {
+                    document.getElementById('commentsBjoern').setAttribute("style", "color: #4cb576; font-weight: bold");
+                }
+            }
+        </script>
     </head>
-    <body style="width: 100%%; height: 100%%; padding: 0; margin: 0; background-image: url('https://live.staticflickr.com/65535/48976646986_1d786e7d56_h.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    <!--body style="width: 100%%; height: 100%%; padding: 0; margin: 0; background-image: url('https://live.staticflickr.com/65535/48976646986_1d786e7d56_h.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"-->
+    <body style="width: 100%%; height: 100%%; padding: 0; margin: 0; background-color: #c0c0c0; background-image: url('https://live.staticflickr.com/65535/48976646986_1d786e7d56_h.jpg'); background-position: center; background-repeat: no-repeat; background-size: 100%% auto;" onload="compare()">
         <table border="0" style="width: 100%%; height: 100%%;"><tr><td valign="middle" align="center" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 40px; font-style: normal; font-variant: normal; font-weight: 400; background-color: rgba(255, 255, 255, 0.5);">
             <table border="0" cellpadding="20" style="background-color: rgba(255, 255, 255, 0.5);">
+                <tr><td colspan="4">Hier schummelt niemand! Und wer 6 Likes mehr hat, muss ja gar nicht meckern 😉</td></tr>
                 <tr><td></td><td align="center" style="font-size: 60px;"><b>Isa</b></td><td>vs.</td><td align="center" style="font-size: 60px;"><b>Bj&ouml;rn</b></td></tr>
                 <tr><td style="font-size: 20px;">Image</td><td align="center"><img style="width: 200px;" src="%s"></td><td>vs.</td><td align="center"><img style="width: 200px;" src="%s"></td></tr>
-                <tr><td style="font-size: 20px;">Views</td><td align="center">%d</td><td>vs.</td><td align="center">%d</td></tr>
-                <tr><td style="font-size: 20px;">Likes</td><td align="center">%d</td><td>vs.</td><td align="center">%d</td></tr>
-                <tr><td style="font-size: 20px;">Comments</td><td align="center">%d</td><td>vs.</td><td align="center">%d</td></tr>
+                <tr><td style="font-size: 20px;">Views</td><td align="center" id="viewsIsa">%d</td><td>vs.</td><td align="center" id="viewsBjoern">%d</td></tr>
+                <tr><td style="font-size: 20px;">Likes</td><td align="center" id="likesIsa">%d</td><td>vs.</td><td align="center" id="likesBjoern">%d</td></tr>
+                <tr><td style="font-size: 20px;">Comments</td><td align="center" id="commentsIsa">%d</td><td>vs.</td><td align="center" id="commentsBjoern">%d</td></tr>
                 <tr><td align="center" colspan="4" style="font-size: 20px;"><b>Stand:</b> %s</td>
             </table>
         </td></tr></table>
